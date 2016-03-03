@@ -142,7 +142,7 @@ public class Learning {
                     sendMessage(storedData,NO_RESPONSE);
                 }
                 else if (db.getUidFromUserName(session.getName()) == -2) {
-                    sendMessage("Sorry, get an ANDROID",NO_RESPONSE);
+                    sendMessage("Sorry, get an ANDROID.",NO_RESPONSE);
                 }
             } else {
                 sendMessage(chatBot.comment(), NO_RESPONSE);
