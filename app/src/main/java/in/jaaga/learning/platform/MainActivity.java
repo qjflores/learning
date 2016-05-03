@@ -36,7 +36,8 @@ import io.fabric.sdk.android.Fabric;
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,ChatFragment.ChatFragmentListener,BotListFragment.BotListFragmentInterface {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
+        ,ChatFragment.ChatFragmentListener,BotListFragment.BotListFragmentInterface {
 
     FragmentManager fragmentManager;
 

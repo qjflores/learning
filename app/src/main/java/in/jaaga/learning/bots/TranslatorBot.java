@@ -1,10 +1,12 @@
 package in.jaaga.learning.bots;
 
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.util.Log;
-
 import com.memetix.mst.language.Language;
 import com.memetix.mst.translate.Translate;
+
+import java.util.regex.Pattern;
 
 import in.jaaga.learning.api.Bot;
 import in.jaaga.learning.api.ChatItem;
@@ -16,6 +18,9 @@ public class TranslatorBot extends Bot {
 
     private String toLanguage;
     private String fromLanguage;
+    private String toSendDefault = "To translate add @language to it. For example:" +
+            " @hindi What is your name?";
+    private String toSend;
 
     public TranslatorBot() {}
 
@@ -29,21 +34,30 @@ public class TranslatorBot extends Bot {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        //sender.send(new ChatItem("This is the begining",ChatItem.TEXT_RESPONSE));
+
+    }
+
+    @Override
     public void onMessageReceived(String text) {
         super.onMessageReceived(text);
         if (needTranslation(text)) {
             // TODO: uncomment when added in fragment.
             translate(text);
         }
-        /*else if {
-            friendlyBot(text);
-        }*/
-        else sender.send(new ChatItem("To translate add @language to it. For example:" +
-                " @hindi What is your name?",ChatItem.TEXT_RESPONSE));
+
+        else {
+            toSend = toSendDefault;
+            sender.send(new ChatItem(toSend,ChatItem.TEXT_RESPONSE));
+        }
     }
 
     public void friendlyBot(String text) {
-
+        if (Pattern.matches(".*name.*",text)) {
+            toSend = "My name is Bing";
+        }
     }
 
     //translation api
