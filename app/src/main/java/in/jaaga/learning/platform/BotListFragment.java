@@ -22,6 +22,7 @@ import in.jaaga.learning.bots.TranslatorBot;
 import in.jaaga.learning.bots.skillbot.MathBot;
 import in.jaaga.learning.platform.adapter.BotList;
 import in.jaaga.learning.platform.adapter.OnItemClickListener;
+import in.jaaga.learning.bots.languagebot.LanguageBot;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -87,6 +88,12 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
         bot.put(MainActivity.NAME,"Bing");
         bot.put(MainActivity.LAST_MESSSAGE,"Translate anything you want..");
         bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.bot4));
+        bot_list.add(bot);
+
+        bot = new HashMap<>();
+        bot.put(MainActivity.NAME,"Noun Bot");
+        bot.put(MainActivity.LAST_MESSSAGE,"Identify the Noun");
+        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.bot5));
         bot_list.add(bot);
 
 
@@ -180,6 +187,12 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
             case 5:
 
                 switchToFragment(new ChatFragment().newInstance(new TranslatorBot()));
+
+                break;
+
+            case 6:
+
+                switchToFragment(new ChatFragment().newInstance(new LanguageBot()));
 
                 break;
         }
